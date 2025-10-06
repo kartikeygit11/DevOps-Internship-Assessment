@@ -1,18 +1,19 @@
-📋 Project Overview
+## **📋 Project Overview** {#project-overview}
 
-This project implements a production-ready DevOps pipeline for a Next.js application with:
+> This project implements a production-ready DevOps pipeline for a
+> Next.js application with:
 
-Containerization using Docker with multi-stage builds
+- Containerization using Docker with multi-stage builds
 
-CI/CD automation via GitHub Actions
+- CI/CD automation via GitHub Actions
 
-Container Registry using GitHub Container Registry (GHCR)
+- Container Registry using GitHub Container Registry (GHCR)
 
-Orchestration with Kubernetes manifests for Minikube deployment
+- Orchestration with Kubernetes manifests for Minikube deployment
 
-🏗️ Architecture
+## **🏗️ Architecture** {#architecture}
 
-text
+> text
 
 Next.js App → Docker Container → GHCR Registry → Kubernetes Deployment
 
@@ -20,219 +21,220 @@ Next.js App → Docker Container → GHCR Registry → Kubernetes Deployment
 
 React Multi-stage Automated Minikube
 
-Framework Builds CI/CD Cluster
+> Framework Builds CI/CD Cluster
 
-📁 Repository Structure
+## **📁 Repository Structure** {#repository-structure}
 
-text
+> text
 
 DevOps-Internship-Assessment/
 
 ├── .github/workflows/
 
-│ └── ci-cd.yml # GitHub Actions CI/CD pipeline
+│ └── ci-cd.yml \# GitHub Actions CI/CD pipeline
 
 ├── k8s/
 
-│ ├── deployment.yaml # Kubernetes Deployment
+│ ├── deployment.yaml \# Kubernetes Deployment
 
-│ └── service.yaml # Kubernetes Service
+│ └── service.yaml \# Kubernetes Service
 
 ├── src/app/
 
-│ ├── layout.js # Next.js layout
+│ ├── layout.js \# Next.js layout
 
-│ └── page.js # Main application page
+│ └── page.js \# Main application page
 
-├── Dockerfile # Multi-stage Docker build
+├── Dockerfile \# Multi-stage Docker build
 
-├── .dockerignore # Docker ignore rules
+├── .dockerignore \# Docker ignore rules
 
-├── next.config.js # Next.js configuration
+├── next.config.js \# Next.js configuration
 
-├── package.json # Node.js dependencies
+├── package.json \# Node.js dependencies
 
-├── package-lock.json # Dependency lock file
+├── package-lock.json \# Dependency lock file
 
-└── README.md # This file
+> └── README.md \# This file
 
-🚀 Quick Start
+## **🚀 Quick Start** {#quick-start}
 
-Prerequisites
+### **Prerequisites**
 
-Docker - For containerization
+- Docker - For containerization
 
-Node.js 18+ - For local development
+- Node.js 18+ - For local development
 
-Minikube - For local Kubernetes cluster
+- Minikube - For local Kubernetes cluster
 
-kubectl - For Kubernetes management
+- kubectl - For Kubernetes management
 
-Local Development
+### **Local Development**
 
-Clone the repository
+1.  Clone the repository
 
-bash
+2.  bash
 
-git clone https://github.com/kartikeygit11/DevOps-Internship-Assessment.git
+git clone
+https://github.com/kartikeygit11/DevOps-Internship-Assessment.git
 
-cd DevOps-Internship-Assessment
+3.  cd DevOps-Internship-Assessment
 
-Install dependencies
+4.  Install dependencies
 
-bash
+5.  bash
 
-npm install
+6.  npm install
 
-Run development server
+7.  Run development server
 
-bash
+8.  bash
 
-npm run dev
+9.  npm run dev  
+    > Application will be available at http://localhost:3000
 
-Application will be available at http://localhost:3000
+### **Docker Local Build**
 
-Docker Local Build
+1.  Build Docker image
 
-Build Docker image
+2.  bash
 
-bash
+3.  docker build -t nextjs-app .
+
+4.  Run container
+
+5.  bash
+
+6.  docker run -p 3000:3000 nextjs-app  
+    > Access at http://localhost:3000
+
+## **🔧 Kubernetes Deployment with Minikube** {#kubernetes-deployment-with-minikube}
+
+### **1. Start Minikube Cluster** {#start-minikube-cluster}
+
+> bash
+
+*\# Start Minikube with adequate resources*
+
+minikube start \--memory=4096 \--cpus=2
+
+*\# Enable Minikube\'s Docker daemon (for local testing)*
+
+> eval \$(minikube docker-env)
+
+### **2. Build and Deploy Application** {#build-and-deploy-application}
+
+> bash
+
+*\# Build image in Minikube environment*
 
 docker build -t nextjs-app .
 
-Run container
-
-bash
-
-docker run -p 3000:3000 nextjs-app
-
-Access at http://localhost:3000
-
-🔧 Kubernetes Deployment with Minikube
-
-1\. Start Minikube Cluster
-
-bash
-
-\# Start Minikube with adequate resources
-
-minikube start --memory=4096 --cpus=2
-
-\# Enable Minikube's Docker daemon (for local testing)
-
-eval $(minikube docker-env)
-
-2\. Build and Deploy Application
-
-bash
-
-\# Build image in Minikube environment
-
-docker build -t nextjs-app .
-
-\# Apply Kubernetes manifests
+*\# Apply Kubernetes manifests*
 
 kubectl apply -f k8s/
 
-\# Alternative: Apply individual resources
+*\# Alternative: Apply individual resources*
 
 kubectl apply -f k8s/deployment.yaml
 
-kubectl apply -f k8s/service.yaml
+> kubectl apply -f k8s/service.yaml
 
-3\. Verify Deployment
+### **3. Verify Deployment** {#verify-deployment}
 
-bash
+> bash
 
-\# Check all resources
+*\# Check all resources*
 
 kubectl get all
 
-\# Check pods status
+*\# Check pods status*
 
 kubectl get pods
 
-\# Check services
+*\# Check services*
 
 kubectl get services
 
-\# Check deployment status
+*\# Check deployment status*
 
 kubectl get deployment
 
-\# View pod logs
+*\# View pod logs*
 
-kubectl logs -f deployment/nextjs-app
+> kubectl logs -f deployment/nextjs-app
 
-4\. Access the Application
+### **4. Access the Application** {#access-the-application}
 
-bash
+> bash
 
-\# Get the Minikube service URL
+*\# Get the Minikube service URL*
 
-minikube service nextjs-service --url
+minikube service nextjs-service \--url
 
-\# Or use port-forward for direct access
+*\# Or use port-forward for direct access*
 
-kubectl port-forward service/nextjs-service 8080:80
+> kubectl port-forward service/nextjs-service 8080:80
+>
+> Access the application using the provided URL or at
+> http://localhost:8080
 
-Access the application using the provided URL or at http://localhost:8080
+## **🛠️ CI/CD Pipeline** {#cicd-pipeline}
 
-🛠️ CI/CD Pipeline
+> The GitHub Actions workflow automatically:
 
-The GitHub Actions workflow automatically:
+### **Build Pipeline**
 
-Build Pipeline
+- ✅ Triggered on push to main branch and pull requests
 
-✅ Triggered on push to main branch and pull requests
+- ✅ Builds Docker image using multi-stage builds
 
-✅ Builds Docker image using multi-stage builds
+- ✅ Pushes to GitHub Container Registry (GHCR)
 
-✅ Pushes to GitHub Container Registry (GHCR)
+- ✅ Tags images with branch and commit SHA
 
-✅ Tags images with branch and commit SHA
+- ✅ Uses Buildx caching for faster builds
 
-✅ Uses Buildx caching for faster builds
+### **Image Tags**
 
-Image Tags
+- main - Latest build from main branch
 
-main - Latest build from main branch
+- main-\<commit-sha\> - Specific commit builds
 
-main-<commit-sha> - Specific commit builds
+- pr-\<number\> - Pull request builds
 
-pr-<number> - Pull request builds
+### **GHCR Images**
 
-GHCR Images
+- Main Image: ghcr.io/kartikeygit11/devops-internship-assessment:main
 
-Main Image: ghcr.io/kartikeygit11/devops-internship-assessment:main
+- Latest SHA:
+  > ghcr.io/kartikeygit11/devops-internship-assessment:main-\<commit-sha\>
 
-Latest SHA: ghcr.io/kartikeygit11/devops-internship-assessment:main-<commit-sha>
+## **📦 Kubernetes Resources** {#kubernetes-resources}
 
-📦 Kubernetes Resources
+### **Deployment (k8s/deployment.yaml)** {#deployment-k8sdeployment.yaml}
 
-Deployment (k8s/deployment.yaml)
+- Replicas: 3 instances for high availability
 
-Replicas: 3 instances for high availability
+- Health Checks: Liveness and readiness probes
 
-Health Checks: Liveness and readiness probes
+- Resource Limits: CPU and memory constraints
 
-Resource Limits: CPU and memory constraints
+- Rolling Updates: Zero-downtime deployments
 
-Rolling Updates: Zero-downtime deployments
+- Horizontal Pod Autoscaler: Automatic scaling (2-10 replicas)
 
-Horizontal Pod Autoscaler: Automatic scaling (2-10 replicas)
+### **Service (k8s/service.yaml)** {#service-k8sservice.yaml}
 
-Service (k8s/service.yaml)
+- Type: LoadBalancer for external access
 
-Type: LoadBalancer for external access
+- Port: 80 external → 3000 internal
 
-Port: 80 external → 3000 internal
+- Selector: Matches app: nextjs-app labels
 
-Selector: Matches app: nextjs-app labels
+### **Health Monitoring**
 
-Health Monitoring
-
-yaml
+> yaml
 
 livenessProbe:
 
@@ -256,224 +258,224 @@ port: 3000
 
 initialDelaySeconds: 5
 
-periodSeconds: 5
+> periodSeconds: 5
 
-🐳 Docker Optimization
+## **🐳 Docker Optimization** {#docker-optimization}
 
-The Dockerfile implements best practices:
+> The Dockerfile implements best practices:
 
-Multi-stage Build
+### **Multi-stage Build**
 
-Stage 1 (deps): Dependency installation
+- Stage 1 (deps): Dependency installation
 
-Stage 2 (builder): Application build
+- Stage 2 (builder): Application build
 
-Stage 3 (runner): Production runtime
+- Stage 3 (runner): Production runtime
 
-Security Features
+### **Security Features**
 
-Non-root user execution
+- Non-root user execution
 
-Minimal Alpine base image
+- Minimal Alpine base image
 
-No development dependencies in production
+- No development dependencies in production
 
-Proper file permissions
+- Proper file permissions
 
-Performance Optimizations
+### **Performance Optimizations**
 
-Layer caching optimization
+- Layer caching optimization
 
-.dockerignore to exclude unnecessary files
+- .dockerignore to exclude unnecessary files
 
-Multi-architecture support ready
+- Multi-architecture support ready
 
-📊 Monitoring and Management
+## **📊 Monitoring and Management** {#monitoring-and-management}
 
-Useful Kubernetes Commands
+### **Useful Kubernetes Commands**
 
-bash
+> bash
 
-\# Scale deployment
+*\# Scale deployment*
 
-kubectl scale deployment nextjs-app --replicas=5
+kubectl scale deployment nextjs-app \--replicas=5
 
-\# View detailed pod information
+*\# View detailed pod information*
 
-kubectl describe pod <pod-name>
+kubectl describe pod \<pod-name\>
 
-\# View resource usage
+*\# View resource usage*
 
 kubectl top pods
 
-\# View events
+*\# View events*
 
-kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl get events \--sort-by=.metadata.creationTimestamp
 
-\# Debugging
+*\# Debugging*
 
-kubectl exec -it <pod-name> -- /bin/sh
+> kubectl exec -it \<pod-name\> \-- /bin/sh
 
-Application Logs
+### **Application Logs**
 
-bash
+> bash
 
-\# Stream logs from all pods
+*\# Stream logs from all pods*
 
 kubectl logs -f -l app=nextjs-app
 
-\# View logs from specific pod
+*\# View logs from specific pod*
 
-kubectl logs -f <pod-name>
+kubectl logs -f \<pod-name\>
 
-\# View previous container logs
+*\# View previous container logs*
 
-kubectl logs -f <pod-name> --previous
+> kubectl logs -f \<pod-name\> \--previous
 
-🧹 Cleanup
+## **🧹 Cleanup** {#cleanup}
 
-Remove Kubernetes Resources
+### **Remove Kubernetes Resources**
 
-bash
+> bash
 
-\# Delete all resources
+*\# Delete all resources*
 
 kubectl delete -f k8s/
 
-\# Delete specific resources
+*\# Delete specific resources*
 
 kubectl delete deployment nextjs-app
 
-kubectl delete service nextjs-service
+> kubectl delete service nextjs-service
 
-Stop Minikube
+### **Stop Minikube**
 
-bash
+> bash
 
-\# Stop Minikube cluster
+*\# Stop Minikube cluster*
 
 minikube stop
 
-\# Delete Minikube cluster (complete cleanup)
+*\# Delete Minikube cluster (complete cleanup)*
 
-minikube delete
+> minikube delete
 
-Clean Docker Images
+### **Clean Docker Images**
 
-bash
+> bash
 
-\# Remove all unused containers, networks, and images
-
-docker system prune -a
-
-\# Remove specific image
-
-docker rmi nextjs-app
-
-🔍 Troubleshooting
-
-Common Issues
-
-Image Pull Errors
-
-bash
-
-\# Ensure Minikube Docker env is set
-
-eval $(minikube docker-env)
-
-Port Already in Use
-
-bash
-
-\# Kill process using port 3000
-
-lsof -ti:3000 | xargs kill -9
-
-Build Failures
-
-bash
-
-\# Clear Docker cache
+*\# Remove all unused containers, networks, and images*
 
 docker system prune -a
 
-\# Clear Next.js cache
+*\# Remove specific image*
 
-rm -rf .next node\_modules
+> docker rmi nextjs-app
 
-npm install
+## **🔍 Troubleshooting** {#troubleshooting}
 
-Kubernetes Pod Issues
+### **Common Issues**
 
-bash
+1.  Image Pull Errors
 
-\# Check pod status and events
+2.  bash
 
-kubectl describe pod <pod-name>
+*\# Ensure Minikube Docker env is set*
 
-\# Check cluster status
+3.  eval \$(minikube docker-env)
+
+4.  Port Already in Use
+
+5.  bash
+
+*\# Kill process using port 3000*
+
+6.  lsof -ti:3000 \| xargs kill -9
+
+7.  Build Failures
+
+8.  bash
+
+*\# Clear Docker cache*
+
+docker system prune -a
+
+*\# Clear Next.js cache*
+
+rm -rf .next node_modules
+
+9.  npm install
+
+10. Kubernetes Pod Issues
+
+11. bash
+
+*\# Check pod status and events*
+
+kubectl describe pod \<pod-name\>
+
+*\# Check cluster status*
+
+12. minikube status
+
+### **Debugging Commands**
+
+> bash
+
+*\# Check Minikube status*
 
 minikube status
 
-Debugging Commands
-
-bash
-
-\# Check Minikube status
-
-minikube status
-
-\# Check Kubernetes nodes
+*\# Check Kubernetes nodes*
 
 kubectl get nodes
 
-\# Check all resources in namespace
+*\# Check all resources in namespace*
 
 kubectl get all
 
-\# View detailed service information
+*\# View detailed service information*
 
-kubectl describe service nextjs-service
+> kubectl describe service nextjs-service
 
-📈 Performance Features
+## **📈 Performance Features** {#performance-features}
 
-Health Checks: Ensures application responsiveness
+- Health Checks: Ensures application responsiveness
 
-Resource Limits: Prevents resource exhaustion
+- Resource Limits: Prevents resource exhaustion
 
-Multiple Replicas: High availability
+- Multiple Replicas: High availability
 
-Horizontal Scaling: Automatic scaling based on CPU
+- Horizontal Scaling: Automatic scaling based on CPU
 
-Efficient Caching: Docker layer and GitHub Actions cache
+- Efficient Caching: Docker layer and GitHub Actions cache
 
-🤝 Contributing
+## **🤝 Contributing** {#contributing}
 
-Fork the repository
+1.  Fork the repository
 
-Create a feature branch
+2.  Create a feature branch
 
-Make your changes
+3.  Make your changes
 
-Test the Docker build and Kubernetes deployment
+4.  Test the Docker build and Kubernetes deployment
 
-Submit a pull request
+5.  Submit a pull request
 
-📄 License
+## **📄 License** {#license}
 
-This project is created for DevOps internship assessment purposes.
+> This project is created for DevOps internship assessment purposes.
 
-📞 Support
+## **📞 Support** {#support}
 
-For issues related to this deployment:
+> For issues related to this deployment:
 
-Check the GitHub Actions logs
+1.  Check the GitHub Actions logs
 
-Verify Kubernetes manifests
+2.  Verify Kubernetes manifests
 
-Ensure all prerequisites are installed
+3.  Ensure all prerequisites are installed
 
-Review the troubleshooting section
+4.  Review the troubleshooting section
 
-Built with ❤️ using Next.js, Docker, GitHub Actions, and Kubernetes
+> Built with ❤️ using Next.js, Docker, GitHub Actions, and Kubernetes
