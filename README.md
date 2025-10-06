@@ -438,44 +438,6 @@ kubectl get all
 
 > kubectl describe service nextjs-service
 
-## **📈 Performance Features** {#performance-features}
 
-- Health Checks: Ensures application responsiveness
-
-- Resource Limits: Prevents resource exhaustion
-
-- Multiple Replicas: High availability
-
-- Horizontal Scaling: Automatic scaling based on CPU
-
-- Efficient Caching: Docker layer and GitHub Actions cache
-
-## **🤝 Contributing** {#contributing}
-
-1.  Fork the repository
-
-2.  Create a feature branch
-
-3.  Make your changes
-
-4.  Test the Docker build and Kubernetes deployment
-
-5.  Submit a pull request
-
-## **📄 License** {#license}
-
-> This project is created for DevOps internship assessment purposes.
-
-## **📞 Support** {#support}
-
-> For issues related to this deployment:
-
-1.  Check the GitHub Actions logs
-
-2.  Verify Kubernetes manifests
-
-3.  Ensure all prerequisites are installed
-
-4.  Review the troubleshooting section
 
 > Built with ❤️ using Next.js, Docker, GitHub Actions, and Kubernetes
